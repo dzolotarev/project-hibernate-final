@@ -1,17 +1,22 @@
 package ru.dzolotarev.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(schema = "world", name = "country_language")
 public class CountryLanguage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
@@ -25,7 +30,4 @@ public class CountryLanguage {
     private Boolean isOfficial;
 
     private BigDecimal percentage;
-
-
-    //Getters and Setters omitted
 }

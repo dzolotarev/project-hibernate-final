@@ -1,7 +1,13 @@
 package ru.dzolotarev.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(schema = "world", name = "city")
 public class City {
@@ -19,8 +25,5 @@ public class City {
     private String district;
 
     private Integer population;
-
-
-    //Getters and Setters omitted
 }
 
