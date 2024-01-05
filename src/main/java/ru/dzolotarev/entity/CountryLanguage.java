@@ -1,4 +1,4 @@
-package ru.dzolotarev.domain;
+package ru.dzolotarev.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

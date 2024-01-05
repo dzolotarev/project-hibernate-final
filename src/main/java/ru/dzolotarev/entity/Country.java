@@ -1,10 +1,16 @@
-package ru.dzolotarev.domain;
+package ru.dzolotarev.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(schema = "world", name = "country")
 public class Country {
@@ -52,14 +58,12 @@ public class Country {
     @Column(name = "head_of_state")
     private String headOfState;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY) // LAZY - для уменьшения кол-ва  запросов
     @JoinColumn(name = "capital")
     private City city;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
     private Set<CountryLanguage> languages;
-
-    //Getters and Setters omitted
 }
 
